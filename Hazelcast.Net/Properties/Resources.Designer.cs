@@ -73,7 +73,7 @@ namespace Properties {
         ///  ~
         ///  ~ Unless required by applicable law or agreed to in writing, software
         ///  ~ distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
-        ///  ~ WITHOUT WARRANTI [rest of string was truncated]&quot;;.
+        ///  ~ WITH [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string hazelcast_client_default {
             get {
