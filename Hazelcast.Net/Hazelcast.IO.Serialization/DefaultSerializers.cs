@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Numerics;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 
@@ -74,7 +73,7 @@ namespace Hazelcast.IO.Serialization
 
             public override void Write(IObjectDataOutput output, BigInteger obj)
             {
-                var bytes = obj.ToByteArray();
+                var bytes = obj.getBytes();
                 Array.Reverse(bytes);
                 output.WriteByteArray(bytes);
             }

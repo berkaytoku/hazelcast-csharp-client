@@ -24,6 +24,7 @@ using Hazelcast.IO.Serialization;
 using Hazelcast.Logging;
 using Hazelcast.Net.Ext;
 using Hazelcast.Util;
+using C5;
 
 namespace Hazelcast.Client
 {
@@ -186,7 +187,7 @@ namespace Hazelcast.Client
             }
         }
 
-        private void HandleIMapBatchInvalidation(IList<IData> keys)
+        private void HandleIMapBatchInvalidation(System.Collections.Generic.IList<IData> keys)
         {
             foreach (var data in keys)
             {
@@ -226,7 +227,8 @@ namespace Hazelcast.Client
         {
             try
             {
-                var records = new SortedSet<CacheRecord>(Cache.Values, _selectedComparer);
+                var records = new SortedArray<CacheRecord>(_selectedComparer);
+                records.AddAll(Cache.Values);
                 var evictSize = Cache.Count*EvictionPercentage/100;
                 var i = 0;
                 foreach (var record in records)

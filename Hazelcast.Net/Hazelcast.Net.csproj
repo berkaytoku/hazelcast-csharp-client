@@ -47,7 +47,7 @@
     <MSBuildCommunityTasksPath>..\.build</MSBuildCommunityTasksPath>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>..\hazelcast.snk</AssemblyOriginatorKeyFile>
@@ -552,7 +552,9 @@
     <Compile Include="Hazelcast.Util\Clock.cs" />
     <Compile Include="Hazelcast.Util\EnvironmentUtil.cs" />
     <Compile Include="Hazelcast.Util\ExceptionUtil.cs" />
+    <Compile Include="Hazelcast.Util\HashSet.cs" />
     <Compile Include="Hazelcast.Util\HashUtil.cs" />
+    <Compile Include="Hazelcast.Util\ISet.cs" />
     <Compile Include="Hazelcast.Util\QuickMath.cs" />
     <Compile Include="Hazelcast.Util\RandomLB.cs" />
     <Compile Include="Hazelcast.Util\RoundRobinLB.cs" />
@@ -560,6 +562,7 @@
     <Compile Include="Hazelcast.Util\StaticLB.cs" />
     <Compile Include="Hazelcast.Util\StripedTaskScheduler.cs" />
     <Compile Include="Hazelcast.Util\ThreadUtil.cs" />
+    <Compile Include="Hazelcast.Util\TryParseEnum.cs" />
     <Compile Include="Hazelcast.Util\ValidationUtil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -570,11 +573,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Package.nuspec" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="BigInteger, Version=1.4.5574.38047, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\BigInteger.1.0.4\lib\BigInteger.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C5, Version=2.4.5947.17249, Culture=neutral, PublicKeyToken=282361b99ded7e8e, processorArchitecture=MSIL">
+      <HintPath>..\packages\C5.2.4.5947.17249\lib\net35\C5.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Numerics" />
     <Reference Include="System.Threading, Version=1.0.2856.102, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\TaskParallelLibrary.1.0.2856.0\lib\Net35\System.Threading.dll</HintPath>
       <Private>True</Private>
