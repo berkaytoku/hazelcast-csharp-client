@@ -260,7 +260,7 @@ namespace Hazelcast.Config
                         break;
                     case "in-memory-format":
                         InMemoryFormat result;
-                        Enum.TryParse(GetTextContent(child), true, out result);
+                        TryParseEnum.TryParse(GetTextContent(child), out result);
                         nearCacheConfig.SetInMemoryFormat(result);
                         break;
                     case "invalidate-on-change":

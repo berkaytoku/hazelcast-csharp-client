@@ -138,7 +138,7 @@ namespace Hazelcast.Config
         // this setter is for reflection based configuration building
         public virtual NearCacheConfig SetInMemoryFormat(string inMemoryFormat)
         {
-            Enum.TryParse(inMemoryFormat, true, out _inMemoryFormat);
+            TryParseEnum.TryParse(inMemoryFormat, out _inMemoryFormat);
             return this;
         }
 

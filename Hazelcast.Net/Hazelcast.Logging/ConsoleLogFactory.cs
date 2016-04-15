@@ -32,14 +32,13 @@ namespace Hazelcast.Logging
             else
             {
                 LogLevel level;
-                if (Enum.TryParse(logLevel, true, out level))
+                if (TryParseEnum.TryParse(logLevel, out level))
                 {
                     _loggingLevel = level;
                 }
                 else
                 {
-                    throw new ConfigurationException("Log level " + logLevel + " is invalid, the allowed values are " +
-                                                     string.Join(", ", (LogLevel[]) Enum.GetValues(typeof (LogLevel))));
+                    throw new ConfigurationException("Log level " + logLevel + " is invalid");
                 }
             }
         }
