@@ -105,7 +105,13 @@ namespace Hazelcast.Client.Spi
 
         public ICollection<IDistributedObject> GetDistributedObjects()
         {
-            return new ReadOnlyCollection<IDistributedObject>(_proxies.Values.ToList<IDistributedObject>());
+            ICollection<ClientProxy> proxyValues = _proxies.Values;
+            Collection<IDistributedObject> coll = new Collection<IDistributedObject>();
+            foreach (ClientProxy proxy in proxyValues) {
+                coll.Add(proxy);
+            }
+
+            return coll;
         }
 
         public ClientProxy GetOrCreateProxy<T>(string service, string id)

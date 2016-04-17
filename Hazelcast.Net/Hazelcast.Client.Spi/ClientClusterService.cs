@@ -375,9 +375,7 @@ namespace Hazelcast.Client.Spi
                     }
                 }
             }
-            throw new InvalidOperationException("Unable to connect to any address in the config! " +
-                                                "The following addresses were tried:" +
-                                                string.Join(", ", triedAddresses));
+            throw new InvalidOperationException("Unable to connect to any address in the config! ");
         }
 
         private void FireConnectionEvent(LifecycleEvent.LifecycleState state)
