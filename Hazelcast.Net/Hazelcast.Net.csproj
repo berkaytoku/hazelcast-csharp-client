@@ -552,7 +552,7 @@
     <Compile Include="Hazelcast.Util\Clock.cs" />
     <Compile Include="Hazelcast.Util\EnvironmentUtil.cs" />
     <Compile Include="Hazelcast.Util\ExceptionUtil.cs" />
-    <Compile Include="Hazelcast.Util\HashSet.cs" />
+    <Compile Include="Hazelcast.Util\HashSetHazelcast.cs" />
     <Compile Include="Hazelcast.Util\HashUtil.cs" />
     <Compile Include="Hazelcast.Util\ISet.cs" />
     <Compile Include="Hazelcast.Util\QuickMath.cs" />

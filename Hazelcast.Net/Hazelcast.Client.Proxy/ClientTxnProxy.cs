@@ -65,7 +65,7 @@ namespace Hazelcast.Client.Proxy
 
         protected internal virtual ISet<T> ToSet<T>(ICollection<IData> dataList)
         {
-            var set = new HashSet<T>();
+            var set = new HashSetHazelcast<T>();
             foreach (var data in dataList)
             {
                 set.Add(ToObject<T>(data));

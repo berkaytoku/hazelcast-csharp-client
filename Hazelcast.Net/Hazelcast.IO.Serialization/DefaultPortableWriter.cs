@@ -32,7 +32,7 @@ namespace Hazelcast.IO.Serialization
             _serializer = serializer;
             _out = @out;
             _cd = cd;
-            _writtenFields = new HashSet<string>(); //cd.GetFieldCount()
+            _writtenFields = new HashSetHazelcast<string>(); //cd.GetFieldCount()
             _begin = @out.Position();
             // room for final offset
             @out.WriteZeroBytes(4);

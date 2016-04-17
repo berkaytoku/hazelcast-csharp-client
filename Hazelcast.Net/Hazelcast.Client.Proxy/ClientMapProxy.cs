@@ -530,7 +530,7 @@ namespace Hazelcast.Client.Proxy
         {
             var request = MapEntrySetCodec.EncodeRequest(GetName());
             var entries = Invoke(request, m => MapEntrySetCodec.DecodeResponse(m).entrySet);
-            ISet<KeyValuePair<TKey, TValue>> entrySet = new HashSet<KeyValuePair<TKey, TValue>>();
+            ISet<KeyValuePair<TKey, TValue>> entrySet = new HashSetHazelcast<KeyValuePair<TKey, TValue>>();
             foreach (var entry in entries)
             {
                 var key = ToObject<TKey>(entry.Key);
@@ -657,7 +657,7 @@ namespace Hazelcast.Client.Proxy
         {
             var request = MapEntriesWithPredicateCodec.EncodeRequest(GetName(), ToData(predicate));
             var entries = Invoke(request, m => MapEntriesWithPredicateCodec.DecodeResponse(m).entrySet);
-            ISet<KeyValuePair<TKey, TValue>> entrySet = new HashSet<KeyValuePair<TKey, TValue>>();
+            ISet<KeyValuePair<TKey, TValue>> entrySet = new HashSetHazelcast<KeyValuePair<TKey, TValue>>();
             foreach (var dataEntry in entries)
             {
                 var key = ToObject<TKey>(dataEntry.Key);

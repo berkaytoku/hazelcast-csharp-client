@@ -104,7 +104,7 @@ namespace Hazelcast.Client.Spi
         protected internal virtual ISet<KeyValuePair<TKey, TValue>> ToEntrySet<TKey, TValue>(
             ICollection<KeyValuePair<IData, IData>> entryCollection)
         {
-            ISet<KeyValuePair<TKey, TValue>> entrySet = new HashSet<KeyValuePair<TKey, TValue>>();
+            ISet<KeyValuePair<TKey, TValue>> entrySet = new HashSetHazelcast<KeyValuePair<TKey, TValue>>();
             foreach (var entry in entryCollection)
             {
                 var key = ToObject<TKey>(entry.Key);
@@ -131,7 +131,7 @@ namespace Hazelcast.Client.Spi
 
         protected internal virtual ISet<T> ToSet<T>(ICollection<IData> dataList)
         {
-            var set = new HashSet<T>();
+            var set = new HashSetHazelcast<T>();
             foreach (var data in dataList)
             {
                 set.Add(ToObject<T>(data));
@@ -225,7 +225,7 @@ namespace Hazelcast.Client.Spi
         protected ISet<IData> ToDataSet<T>(ICollection<T> c)
         {
             ThrowExceptionIfNull(c);
-            var valueSet = new HashSet<IData>();
+            var valueSet = new HashSetHazelcast<IData>();
             foreach (var o in c)
             {
                 ThrowExceptionIfNull(o);
